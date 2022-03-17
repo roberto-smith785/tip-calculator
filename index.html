@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-container">
+        <div class="title-container text-center p-3">
+            <img src="images/logo.svg" class="img-fluid">
+        </div>
+        <div class="main-container row">
+            <div class="cal-container col-lg-6 col-md-6 col-12">
+                <div class="row bill-container">
+                    <label for="bill-input">Bill</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+              <img src="images/icon-dollar.svg"></span>
+                        </span>
+                        <input type="text" class="form-control" id="bill-input" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="row tip-container">
+                    <label for="tip">Select Tip  %</label>
+                    <div class="row" id="tip">
+                        <div class="col-lg-4 col-6">
+                            <button class="btn w-100  percentage" value="0.05" id="per-5">5%</button>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <button class="btn w-100  percentage" value="0.10" id="per-10">10%</button>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <button class="btn w-100  percentage" value="0.15" id="per-15">15%</button>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <button class="btn w-100  percentage" value="0.25" id="per-25">25%</button>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <button class="btn w-100  percentage" value="0.50" id="per-50">50%</button>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <input type="text" class="w-100 btn percentage" value="" id="per-custom" placeholder="CUSTOM">
+                        </div>
+                    </div>
+                </div>
+                <div class="row people-container">
+                    <label for="people">Number of People</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+              <img class="img-flud" src="images/icon-person.svg">
+            </span>
+                        <input type="text" class="form-control" id="people" placeholder="0">
+                    </div>
+                </div>
+            </div>
+            <div class="amount-container col-lg-6 col-md-6 col-12">
+                <div class="amounts-container">
+                    <div class="row tip-container">
+                        <div class="col-6">
+                            <span class="tip-title amounts-title">
+                                <h5>Tip Amount</h5>
+                                <p class="lead">/ person</p>
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-end amount display-6">$<span class="tip">0.00</span></p>
+                        </div>
+                    </div>
+                    <div class="row total-container">
+                        <div class="col-6">
+                            <span class="total-title amounts-title">
+                                <h5>Total</h5>
+                                <p class="lead">/ person</p>
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-end amount display-6">$<span class="total-amount">0.00</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-container p-2 mt-5">
+
+                    <input type="reset" class="w-100 btn reset-btn" value="RESET">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="attribution p-3">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="scripts/calculator.js"></script>
+
+</body>
+
+</html>

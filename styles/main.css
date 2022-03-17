@@ -1,0 +1,161 @@
+@import url('https://fonts.google.com/specimen/Space+Mono');
+:root {
+    /* primary colors */
+    --StrongCyan: hsl(172, 67%, 45%);
+    --DarkCyan: rgb(0, 71, 75);
+    /* neutral colors */
+    --VeryDarkCyan: hsl(183, 100%, 15%);
+    --DarkGrayishCyan: rgb(13, 104, 109);
+    --GrayishCyan: hsl(184, 14%, 56%);
+    --LightGrayishCyan: hsl(185, 41%, 84%);
+    --VeryLightGrayishCyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --InputSize: 24px;
+    --FontFamily: 'Space Mono';
+    --FontWeight: 700;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--FontFamily);
+    overflow-x: hidden !important;
+    background-color: var(--LightGrayishCyan);
+}
+
+.row {
+    margin: 0;
+}
+
+.input-group-text {
+    background: transparent;
+    border: none;
+}
+
+.form-control {
+    background: transparent;
+    border: none;
+}
+
+.content-container {
+    display: grid;
+    place-content: center;
+}
+
+.main-container {
+    background-color: var(--White);
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+.cal-container>.row {
+    padding: 1rem;
+}
+
+.amount-container {
+    background: var(--DarkCyan);
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+#tip {
+    padding: 0 !important;
+}
+
+#tip div {
+    padding: 1rem 0rem;
+    padding-right: 0.5rem;
+}
+
+.tip-container .btn,
+input {
+    background-color: var(--DarkCyan);
+    color: var(--White);
+}
+
+.btn:focus,
+.form-control,
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn,
+.form-control,
+button {
+    box-shadow: none !important;
+    border: none;
+}
+
+.btn-active {
+    background: var(--StrongCyan) !important;
+    color: var(--DarkCyan) !important;
+}
+
+#tip .btn:hover {
+    background: var(--StrongCyan) !important;
+    color: var(--DarkCyan) !important;
+}
+
+input {
+    font-size: var(--InputSize);
+    background: var(--LightGrayishCyan);
+    transition: all 0.25s;
+    text-align: end;
+}
+
+input:focus {
+    border-color: var(--StrongCyan);
+}
+
+.input-group {
+    background: var(--LightGrayishCyan);
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 98%;
+}
+
+label {
+    padding: 0 !important;
+}
+
+input.form-control:focus {
+    outline: none;
+    border: none;
+    background: var(--LightGrayishCyan);
+}
+
+.input-group:focus {
+    border: 2px solid var(--StrongCyan);
+}
+
+.amounts-container .row {
+    padding: 1rem 0;
+}
+
+.amounts-title h5 {
+    color: var(--White);
+}
+
+.amounts-title p {
+    color: var(--LightGrayishCyan);
+}
+
+.amount {
+    color: var(--StrongCyan);
+    font-weight: var(--FontWeight);
+}
+
+.reset-btn {
+    background: var(--DarkGrayishCyan);
+    padding: 0.5rem;
+    color: var(--DarkCyan);
+}
+
+.reset-btn:hover {
+    background: var(--StrongCyan);
+    color: var(--DarkCyan);
+}
