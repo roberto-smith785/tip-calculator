@@ -24,20 +24,28 @@ function calTip(amount, percentage, persons) {
     total = ((tip_due * persons) + amount);
     total_person = (total / persons);
 
-    tip_container.innerText = tip_due;
-    total_container.innerText = total_person;
+    tip_container.innerText = tip_due.toFixed(2);
+    total_container.innerText = total_person.toFixed(2);
+
 }
 
 function check_values() {
+    if (bill.value >= 1) {
+        if (people.value >= 1) {
+            for (let i = 0; i < btns.length; i++) {
+                if (btns[i].classList.contains("btn-active")) {
+                    if (btns[i].getAttribute("id") == "per-custom") {
+                        btns[i].addEventListener("input", () => {
+                            btns[i].setAttribute("value", ((parseFloat(btns[i].value)) / 100));
 
-    for (let i = 0; i < btns.length; i++) {
-        if (btns[i].classList.contains("btn-active")) {
-            calTip(parseFloat(bill.value), parseFloat(btns[i].value), parseFloat(people.value));
-        } else if (btns[i].classList.contains("btn-active") && btns[i].getAttribute("id") == "per-custom") {
-            btns[i].addEventListener("input", () => {
-                btns[i].setAttribute("value", (btns[i].value / 100));
-            })
-            calTip(parseFloat(bill.value), parseFloat(btns[i].value), parseFloat(people.value));
+                            calTip(parseFloat(bill.value), parseFloat(btns[i].value / 100), parseFloat(people.value));
+                        })
+
+                    } else {
+                        calTip(parseFloat(bill.value), parseFloat(btns[i].value), parseFloat(people.value));
+                    }
+                }
+            }
         }
     }
 
@@ -45,8 +53,12 @@ function check_values() {
 }
 
 
-bill.addEventListener("click", check_values());
-people.addEventListener("click", check_values());
+bill.addEventListener("change", () => {
+    calTip(parseFloat(bill.value), parseFloat(tip.value), parseFloat(people.value));
+});
+people.addEventListener("change", () => {
+    calTip(parseFloat(bill.value), parseFloat(tip.value), parseFloat(people.value));
+});
 
 // tip eventlistener section start
 btns.forEach(btn => {
@@ -58,12 +70,20 @@ btns.forEach(btn => {
                     if (btn.getAttribute("id") == "per-custom") {
                         btn.addEventListener("click", () => {
                             err.style = "display:none";
-                            btn.setAttribute("value", (btn.value / 100));
-                        })
-                        calTip(parseFloat(bill.value), parseFloat(btn.value), parseFloat(people.value));
 
+                            btn.setAttribute("value", (parseFloat(btn.value) / 100));
+                        })
+                        if (bill.value >= 1) {
+                            if (people.value >= 1) {
+                                calTip(parseFloat(bill.value), parseFloat(btn.value / 100), parseFloat(people.value));
+                            }
+                        }
                     } else {
-                        calTip(parseFloat(bill.value), parseFloat(btn.value), parseFloat(people.value));
+                        if (bill.value >= 1) {
+                            if (people.value >= 1) {
+                                calTip(parseFloat(bill.value), parseFloat(btn.value), parseFloat(people.value));
+                            }
+                        }
                     }
                 } else {
                     btns[i].classList.remove("btn-active");
@@ -75,8 +95,6 @@ btns.forEach(btn => {
     // tip eventlistener section end
 
 
-bill.addEventListener("change", check_values());
-people.addEventListener("change", check_values());
 
 reset.addEventListener("click", () => {
     bill.value = '';
